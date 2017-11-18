@@ -11,8 +11,8 @@
  * 
  */
 
-//#define DEBUG 1
-#undef DEBUG
+#define DEBUG 1
+//#undef DEBUG
 // Use this if using a nanode so it gets MAC address from onboard chip
 
 #include "EtherCard.h"
@@ -123,7 +123,7 @@ int16_t process_request(char *str)
 
   if(pin != NULL){
     if(value != NULL){
-
+      
       // set the pin value
 #ifdef DEBUG
       Serial.println("setting pin");
@@ -169,6 +169,7 @@ int16_t process_request(char *str)
         // get numeric value
         int selectedValue = atoi(value);
 #ifdef DEBUG
+        Serial.print("Selected Value: ");
         Serial.println(selectedValue);
 #endif
               
@@ -182,7 +183,7 @@ int16_t process_request(char *str)
 
       // read the pin value
 #ifdef DEBUG
-      Serial.println("reading pin");
+      Serial.println("------------------- Reading pin --------------------");
 #endif
 
       // determine analog or digital
@@ -208,7 +209,9 @@ int16_t process_request(char *str)
         int selectedPin = pin[0] - '0';
 
 #ifdef DEBUG
+        Serial.print("Reading from pin: ");
         Serial.println(selectedPin);
+        Serial.print("Pin type: ");
         Serial.println("digital");
 #endif
 
@@ -225,6 +228,7 @@ int16_t process_request(char *str)
         }
               
 #ifdef DEBUG
+        Serial.print("Setting value of: ");
         Serial.println(outValue);
 #endif
       }
