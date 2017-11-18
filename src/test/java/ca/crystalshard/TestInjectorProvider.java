@@ -1,12 +1,12 @@
 package ca.crystalshard;
 
-import ca.crystalshard.ruby.boot.guice.module.AppModule;
-import ca.crystalshard.ruby.boot.guice.module.ConfigModule;
-import ca.crystalshard.ruby.boot.guice.module.MySqlDatabaseModule;
-import ca.crystalshard.ruby.common.adapter.configuration.OverridePropertyFileLocation;
-import ca.crystalshard.ruby.common.domain.DatabaseTypeEnum;
-import ca.crystalshard.ruby.common.domain.configuration.RubyDataConfiguration;
-import ca.crystalshard.ruby.common.domain.exceptions.InvalidApplicationConfigurationException;
+import ca.crystalshard.chasm.boot.guice.module.AppModule;
+import ca.crystalshard.chasm.boot.guice.module.ConfigModule;
+import ca.crystalshard.chasm.boot.guice.module.MySqlDatabaseModule;
+import ca.crystalshard.chasm.common.adapter.configuration.OverridePropertyFileLocation;
+import ca.crystalshard.chasm.common.domain.DatabaseTypeEnum;
+import ca.crystalshard.chasm.common.domain.configuration.RubyDataConfiguration;
+import ca.crystalshard.chasm.common.domain.exceptions.InvalidApplicationConfigurationException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 

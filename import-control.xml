@@ -2,7 +2,7 @@
 <!DOCTYPE import-control PUBLIC "-//Puppy Crawl//DTD Import Control 1.2//EN"
         "import_control_1_2.dtd">
 
-<import-control pkg="ca.crystalshard.ruby">
+<import-control pkg="ca.crystalshard.chasm">
     <allow pkg="java"/>
     <allow pkg="org"/>
     <allow pkg="com.google"/>
@@ -11,29 +11,29 @@
     <allow pkg="sun"/>
     <allow pkg="javax"/>
     <allow pkg="spark"/>
-    <allow pkg="ca.crystalshard.ruby"/>
+    <allow pkg="ca.crystalshard.chasm"/>
     <subpackage name="common">
-        <disallow pkg="ca.crystalshard.ruby.web"/>
+        <disallow pkg="ca.crystalshard.chasm.web"/>
         <disallow pkg="ca.crystalsahrd.ruby.processor"/>
-        <disallow pkg="ca.crystalshard.ruby.boot"/>
+        <disallow pkg="ca.crystalshard.chasm.boot"/>
         <subpackage name="domain">
-            <disallow pkg="ca.crystalshard.ruby.common.adapter"/>
+            <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
         </subpackage>
         <subpackage name="adapter">
         </subpackage>
     </subpackage>
     <subpackage name="web">
-        <disallow pkg="ca.crystalshard.ruby.processor"/>
-        <disallow pkg="ca.crystalshard.ruby.boot"/>
+        <disallow pkg="ca.crystalshard.chasm.processor"/>
+        <disallow pkg="ca.crystalshard.chasm.boot"/>
         <subpackage name="domain">
-            <disallow pkg="ca.crystalshard.ruby.web.adapter"/>
+            <disallow pkg="ca.crystalshard.chasm.web.adapter"/>
         </subpackage>
         <subpackage name="adapter">
         </subpackage>
     </subpackage>
     <subpackage name="processor">
-        <disallow pkg="ca.crystalshard.ruby.web"/>
-        <disallow pkg="ca.crystalshard.ruby.boot"/>
+        <disallow pkg="ca.crystalshard.chasm.web"/>
+        <disallow pkg="ca.crystalshard.chasm.boot"/>
     </subpackage>
     <subpackage name="boot">
     </subpackage>
