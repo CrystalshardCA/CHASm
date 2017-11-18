@@ -8,6 +8,7 @@ import ca.crystalshard.chasm.common.adapter.console.ConsoleArgumentOptions;
 import ca.crystalshard.chasm.common.domain.DatabaseTypeEnum;
 import ca.crystalshard.chasm.common.domain.configuration.RubyDataConfiguration;
 import ca.crystalshard.chasm.common.domain.exceptions.InvalidApplicationConfigurationException;
+import ca.crystalshard.chasm.crawler.adapter.CrawlerModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.apache.commons.cli.CommandLine;
@@ -24,7 +25,7 @@ public class App {
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(new ConsoleArgumentOptions().getOptions(), args);
 
-            Injector injector = Guice.createInjector(new AppModule(), new ConfigModule(new OverridePropertyFileLocation(cmd.getOptionValue("p"))));
+            Injector injector = getInjector(cmd.getOptionValue("p"));
             RubyDataConfiguration config = injector.getInstance(RubyDataConfiguration.class);
             Injector childInjector = getChildInjector(injector, config);
             ModuleBooter booter = childInjector.getInstance(ModuleBooter.class);
@@ -32,6 +33,13 @@ public class App {
         } catch (Exception e) {
             log.error("Failed to start application", e);
         }
+    }
+
+    private static Injector getInjector(String overrideLocation) {
+        return Guice.createInjector(
+                new AppModule(),
+                new ConfigModule(new OverridePropertyFileLocation(overrideLocation)),
+                new CrawlerModule());
     }
 
     private static Injector getChildInjector(Injector injector, RubyDataConfiguration config) {

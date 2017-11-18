@@ -13,4 +13,9 @@ public class JobId extends IntegerId {
     private JobId(Integer id) {
         super(id);
     }
+
+    @Override
+    protected boolean validate(Integer id) {
+        return id > 0;
+    }
 }

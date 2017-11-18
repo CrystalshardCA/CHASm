@@ -60,5 +60,10 @@ public class PropertyFileConfiguration implements RubyWebConfiguration, RubyData
         return DatabaseTypeEnum.valueOf(propertyFile.getProperty("database.type"));
     }
 
+    @Override
+    public String getDatabaseName() {
+        return propertyFile.getProperty("database.name");
+    }
+
 }
 

@@ -14,8 +14,8 @@
     <allow pkg="ca.crystalshard.chasm"/>
     <subpackage name="common">
         <disallow pkg="ca.crystalshard.chasm.web"/>
-        <disallow pkg="ca.crystalsahrd.ruby.processor"/>
         <disallow pkg="ca.crystalshard.chasm.boot"/>
+        <disallow pkg="ca.crystalshard.chasm.crawler"/>
         <subpackage name="domain">
             <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
         </subpackage>
@@ -31,9 +31,12 @@
         <subpackage name="adapter">
         </subpackage>
     </subpackage>
-    <subpackage name="processor">
+    <subpackage name="crawler">
         <disallow pkg="ca.crystalshard.chasm.web"/>
         <disallow pkg="ca.crystalshard.chasm.boot"/>
+        <subpackage name="domain">
+            <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
+        </subpackage>
     </subpackage>
     <subpackage name="boot">
     </subpackage>

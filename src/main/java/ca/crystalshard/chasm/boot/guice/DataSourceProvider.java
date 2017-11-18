@@ -34,7 +34,7 @@ public class DataSourceProvider implements Provider<DataSource> {
         dataSource.setPassword(configuration.getPassword());
         dataSource.setServerName(configuration.getServerName());
         dataSource.setPortNumber(3306);
-        dataSource.setDatabaseName("Chasm");
+        dataSource.setDatabaseName(configuration.getDatabaseName());
         return dataSource;
     }
 

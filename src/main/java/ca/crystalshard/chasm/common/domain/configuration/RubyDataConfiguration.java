@@ -14,4 +14,6 @@ public interface RubyDataConfiguration {
     String getMigrationLocation();
 
     DatabaseTypeEnum getDatabaseType();
+
+    String getDatabaseName();
 }

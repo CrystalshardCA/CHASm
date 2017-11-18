@@ -10,7 +10,12 @@ public class BuildStepId extends IntegerId {
         return new BuildStepId(id);
     }
 
-    BuildStepId(Integer id) {
+    private BuildStepId(Integer id) {
         super(id);
+    }
+
+    @Override
+    protected boolean validate(Integer id) {
+        return id > 0;
     }
 }
