@@ -6,12 +6,15 @@
     <allow pkg="java"/>
     <allow pkg="org"/>
     <allow pkg="com.google"/>
-    <allow pkg="com.microsoft"/>
-    <allow pkg="com.mysql"/>
     <allow pkg="sun"/>
     <allow pkg="javax"/>
-    <allow pkg="spark"/>
     <allow pkg="ca.crystalshard.chasm"/>
+    <subpackage name="boot">
+        <allow pkg="spark"/>
+        <subpackage name="guice">
+            <allow pkg="com.mysql"/>
+        </subpackage>
+    </subpackage>
     <subpackage name="common">
         <disallow pkg="ca.crystalshard.chasm.web"/>
         <disallow pkg="ca.crystalshard.chasm.boot"/>
@@ -19,7 +22,8 @@
         <subpackage name="domain">
             <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
         </subpackage>
-        <subpackage name="adapter">
+        <subpackage name="adapter.spark">
+            <allow pkg="spark"/>
         </subpackage>
     </subpackage>
     <subpackage name="web">
@@ -29,15 +33,20 @@
             <disallow pkg="ca.crystalshard.chasm.web.adapter"/>
         </subpackage>
         <subpackage name="adapter">
+            <allow pkg="spark"/>
         </subpackage>
     </subpackage>
     <subpackage name="crawler">
         <disallow pkg="ca.crystalshard.chasm.web"/>
         <disallow pkg="ca.crystalshard.chasm.boot"/>
+        <subpackage name="adapter.providers">
+            <allow pkg="okhttp3"/>
+        </subpackage>
+        <subpackage name="adapter.httpclient.okhttp3">
+            <allow pkg="okhttp3"/>
+        </subpackage>
         <subpackage name="domain">
             <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
         </subpackage>
-    </subpackage>
-    <subpackage name="boot">
     </subpackage>
 </import-control>
