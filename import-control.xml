@@ -22,8 +22,13 @@
         <subpackage name="domain">
             <disallow pkg="ca.crystalshard.chasm.common.adapter"/>
         </subpackage>
-        <subpackage name="adapter.spark">
-            <allow pkg="spark"/>
+        <subpackage name="adapter">
+            <subpackage name="persistance.flyway">
+                <allow pkg="org.flywaydb"/>
+            </subpackage>
+            <subpackage name="spark">
+                <allow pkg="spark"/>
+            </subpackage>
         </subpackage>
     </subpackage>
     <subpackage name="web">

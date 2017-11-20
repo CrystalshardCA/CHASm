@@ -1,10 +1,12 @@
 package ca.crystalshard.chasm.crawler.domain.identifier;
 
+import ca.crystalshard.chasm.common.domain.identifier.StringId;
+
 import java.util.regex.Pattern;
 
 public class PinId extends StringId {
 
-    private Pattern isValidPinString = Pattern.compile("^A?[0-9]{1,2}$");
+    private static Pattern isValidPinString = Pattern.compile("^A?[0-9]{1,2}$");
 
     public static PinId of(String id) {
         return new PinId(id);

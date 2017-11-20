@@ -4,12 +4,13 @@ import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+
+import static org.junit.Assert.assertEquals;
 
 public class ContractTest {
 
@@ -28,12 +29,12 @@ public class ContractTest {
 
         Response response = getResponse(validUrl);
 
-        PostResponse postResponse = gson.fromJson(response.body().string(), PostResponse.class);
+        @SuppressWarnings("ConstantConditions") PostResponse postResponse = gson.fromJson(response.body().string(), PostResponse.class);
 
-        Assert.assertEquals(1, postResponse.userId);
-        Assert.assertEquals(1, postResponse.id);
-        Assert.assertEquals("sunt aut facere repellat provident occaecati excepturi optio reprehenderit", postResponse.title);
-        Assert.assertEquals("quia et suscipit\n" +
+        assertEquals(1, postResponse.userId);
+        assertEquals(1, postResponse.id);
+        assertEquals("sunt aut facere repellat provident occaecati excepturi optio reprehenderit", postResponse.title);
+        assertEquals("quia et suscipit\n" +
                 "suscipit recusandae consequuntur expedita et cum\n" +
                 "reprehenderit molestiae ut ut quas totam\n" +
                 "nostrum rerum est autem sunt rem eveniet architecto", postResponse.body);
@@ -53,8 +54,8 @@ public class ContractTest {
 
         Response response = getResponse(error404);
 
-        Assert.assertEquals(404, response.code());
-        Assert.assertEquals("Not Found", response.message());
+        assertEquals(404, response.code());
+        assertEquals("Not Found", response.message());
     }
 
     @Test
@@ -63,8 +64,8 @@ public class ContractTest {
 
         Response response = getResponse(error500);
 
-        Assert.assertEquals(500, response.code());
-        Assert.assertEquals("Internal Server Error", response.message());
+        assertEquals(500, response.code());
+        assertEquals("Internal Server Error", response.message());
     }
 
     private Response getResponse(String url) throws IOException {

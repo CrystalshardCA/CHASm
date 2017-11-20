@@ -2,8 +2,10 @@ package ca.crystalshard.chasm.crawler.domain;
 
 import ca.crystalshard.chasm.crawler.adapter.httpclient.HttpResponse;
 
-public interface HttpClient {
-    <T> HttpResponse<T> getContent(String url, Class<T> classOfT);
+import java.net.URL;
 
-    HttpResponse<String> getRawContent(String url);
+public interface HttpClient {
+    <T> HttpResponse<T> getContent(URL url, Class<T> classOfT);
+
+    HttpResponse<String> getRawContent(URL url);
 }

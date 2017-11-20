@@ -1,14 +1,12 @@
-package ca.crystalshard.chasm.crawler.domain.identifier;
-
-import ca.crystalshard.chasm.common.domain.identifier.Id;
+package ca.crystalshard.chasm.common.domain.identifier;
 
 import java.util.regex.Pattern;
 
 public abstract class StringId extends Id<String> {
 
-    private Pattern isAlphaNumericPattern = Pattern.compile("^[a-zA-Z0-9]*$");
+    private static Pattern isAlphaNumericPattern = Pattern.compile("^[a-z0-9]*$", Pattern.CASE_INSENSITIVE);
 
-    StringId(String id) {
+    protected StringId(String id) {
         super(id);
     }
 

@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
@@ -27,7 +28,7 @@ public class OkHttp3HttpClientTest extends BaseTest {
 
     @Test
     public void getRawContent_shouldReturnRawContent() throws IOException {
-        String url = anonString();
+        URL url = anonUrl();
         String expected = anonString();
         doReturn(expected).when(okHttp3ResponseWrapper).getBody();
         doReturn(200).when(okHttp3ResponseWrapper).getCode();
@@ -40,7 +41,7 @@ public class OkHttp3HttpClientTest extends BaseTest {
 
     @Test
     public void getContent_shouldReturnContent() throws IOException {
-        String url = anonString();
+        URL url = anonUrl();
         TestObject test = new TestObject();
         test.test1 = anonInt();
         test.test2 = anonString();

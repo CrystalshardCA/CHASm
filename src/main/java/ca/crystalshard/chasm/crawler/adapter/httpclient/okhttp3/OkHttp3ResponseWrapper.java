@@ -13,13 +13,19 @@ public class OkHttp3ResponseWrapper {
 
     public String getBody() {
         try {
+            //noinspection ConstantConditions
             return response.body().string();
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new HttpRequestBodyIsMalformedException(e);
         }
+    }
+
+    public OkHttp3Headers getHeaders() {
+        return new OkHttp3Headers(response.headers());
     }
 
     public int getCode() {
         return response.code();
     }
 }
+
