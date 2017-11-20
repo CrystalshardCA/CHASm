@@ -11,26 +11,18 @@ import java.util.Map;
 public abstract class RubyController {
 
     void delete(String path, Route route) {
-//        RouteSingleton.getInstance()
-//                .addRoute(new RouteDescription("", path, HttpMethod.DELETE, ""));
         Spark.delete(path, route);
     }
 
     void put(String path, Route route) {
-//        RouteSingleton.getInstance()
-//                .addRoute(new RouteDescription("", path, HttpMethod.PUT, ""));
         Spark.put(path, route);
     }
 
     void post(String path, Route route) {
-//        RouteSingleton.getInstance()
-//                .addRoute(new RouteDescription("", path, HttpMethod.POST, ""));
         Spark.post(path, route);
     }
 
     void get(String path, Route route) {
-//        RouteSingleton.getInstance()
-//                .addRoute(new RouteDescription("", path, HttpMethod.GET, ""));
         Spark.get(path, route);
     }
 
